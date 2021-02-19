@@ -15,6 +15,7 @@ firebase = pyrebase.initialize_app(setting.firebaseConfig)
 auth = firebase.auth()
 db = firebase.database()
 
+
 # hàm tạo tài khoản
 def createAccount(email, password, name):
     try:
@@ -84,5 +85,16 @@ else:
             email = input('Email:')
             password = getpass.getpass('Password:')
             signinAccount(email, password)
+        elif (command == 'createAccount') | (command == '-ca'):
+            print('Create Spinel account')
+            email = input('Email:')
+            password = getpass.getpass('Password:')
+            name = input('Your username:')
+            check = input('Do you agree to the terms? (Y/n):')
+            if (check == 'Y') | (check == 'y'): 
+                createAccount(email, password, name)
+                password = email = name = ''
+            else:
+                pass
         else:
             print('Unknow command. Type help to see more')
