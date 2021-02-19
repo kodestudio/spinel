@@ -7,6 +7,8 @@ import datetime
 import json 
 from rich import print as rprint
 import effect
+import getpass 
+
 
 # dòng này đầu tiên nhằm load firebase config
 firebase = pyrebase.initialize_app(setting.firebaseConfig)
@@ -37,10 +39,11 @@ def signinAccount(email, password):
         f = open('config.json', 'wt')
         f.write(json.dumps(auth.current_user))
         f.close()
-        print('Signin complete')
+        txt = 'You have signed in with account {}'
+        print(txt.format(email))
         return True 
     except:
-        print('Signin errror')
+        print('An error occurred while signin.')
         return False
 
 def resetPassword(email):
@@ -65,8 +68,9 @@ if len(sys.argv) >= 2:
 else:
     effect.intro()
     command = ''
+    strinput = 'home@spinel>'
     while True:
-        command = input('@spinel>')
+        command = input(strinput)
         if command == 'exit':
             break
         elif command == '':
@@ -75,5 +79,10 @@ else:
             effect.fhelp()
         elif (command == 'cls') | (command == 'clear'):
             effect.clearscreen()
+        elif (command == 'signin') | (command == '-si'):
+            print('Sign in to Spinel')
+            email = input('Email:')
+            password = getpass.getpass('Password:')
+            signinAccount(email, password)
         else:
             print('Unknow command. Type help to see more')
