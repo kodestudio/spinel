@@ -17,18 +17,16 @@ db = firebase.database()
 
 
 # hàm tạo tài khoản
-def createAccount(email, password, name):
+def createAccount(email, password):
     try:
         code = auth.create_user_with_email_and_password(email, password)
         print('Account has been created, please verify.')
         auth.send_email_verification(code.get('idToken'))
         tempData = {
-            "name": name,
             "email": email,
             "timeJoin": str(datetime.datetime.now()),
-            "bio": ""
         } 
-        db.child('/users/' + code['localId'] + '/').push(tempData, code['idToken'])
+        db.child('/users/' + code['localId']).set(tempData, code['idToken'])
         return True
     except:
         print('Fail when create new account')
@@ -61,10 +59,8 @@ def userStatus():
     if auth.current_user == None:
         print('No account exists')
     else:
-        txt = """
-Email: {}
-ID: {}
-        """
+        txt = """Email: {}
+ID: {}"""
         print(txt.format(auth.current_user['email'], auth.current_user['localId']))
                 
 
@@ -98,11 +94,10 @@ else:
             print('Create Spinel account')
             email = input('Email:')
             password = getpass.getpass('Password:')
-            name = input('Your username:')
             check = input('Do you agree to the terms? (Y/n):')
             if (check == 'Y') | (check == 'y'): 
-                createAccount(email, password, name)
-                password = email = name = ''
+                createAccount(email, password)
+                password = email  = ''
             else:
                 pass
         elif (command == 'user'):
