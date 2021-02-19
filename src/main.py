@@ -28,7 +28,7 @@ def createAccount(email, password, name):
             "timeJoin": str(datetime.datetime.now()),
             "bio": ""
         } 
-        db.child('/users').push(tempData, code['idToken'])
+        db.child('/users/' + code['localId'] + '/').push(tempData, code['idToken'])
         return True
     except:
         print('Fail when create new account')
@@ -57,7 +57,16 @@ def resetPassword(email):
         return False
 def signoutAccount():
     pass
-
+def userStatus():
+    if auth.current_user == None:
+        print('No account exists')
+    else:
+        txt = """
+Email: {}
+ID: {}
+        """
+        print(txt.format(auth.current_user['email'], auth.current_user['localID']))
+                
 
 
 # chương trình bắt đầu chạy từ đây
@@ -96,5 +105,8 @@ else:
                 password = email = name = ''
             else:
                 pass
+        elif (command == 'user'):
+            # print(auth.current_user)
+            userStatus()
         else:
             print('Unknow command. Type help to see more')
