@@ -1,3 +1,5 @@
+import os 
+import sys
 import requests
 import pyrebase
 import setting
@@ -52,20 +54,26 @@ def resetPassword(email):
 def signoutAccount():
     pass
 
-def fhelp():
-    print("""
-Welcome to Spinel. Try 'spinel [param]'
-Some param can use:
-    help (-h): give help
-    createAccount (-ca) [email] [pass] [username]: create new account with email and password
-    signin (-si) [email] [password]: signin to local Spinel
-    signout (-so): signout Spinel
-    join (-j) [roomID]: join to a secure chat room with ID
-    """)
+
 
 # chương trình bắt đầu chạy từ đây
 
 # in ra intro logo
-effect.intro()
 
-fhelp()
+if len(sys.argv) >= 2:
+    pass 
+else:
+    effect.intro()
+    command = ''
+    while True:
+        command = input('@spinel>')
+        if command == 'exit':
+            break
+        elif command == '':
+            pass
+        elif command =='help':
+            effect.fhelp()
+        elif (command == 'cls') | (command == 'clear'):
+            effect.clearscreen()
+        else:
+            print('Unknow command. Type help to see more')
