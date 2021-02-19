@@ -1,10 +1,1 @@
-{
-    "kind": "",
-    "localId": "",
-    "email": "",
-    "displayName": "",
-    "idToken": "",
-    "registered": true,
-    "refreshToken": "",
-    "expiresIn": ""
-}
+{"kind": "identitytoolkit#VerifyPasswordResponse", "localId": "VKdsZ9YO7ZZerQnhb79F4vSXOO53", "email": "quocthinhvo0@gmail.com", "displayName": "", "idToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjYxMDgzMDRiYWRmNDc1MWIyMWUwNDQwNTQyMDZhNDFkOGZmMWNiYTgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY2l0cmluIiwiYXVkIjoiY2l0cmluIiwiYXV0aF90aW1lIjoxNjEzNzI4Nzk0LCJ1c2VyX2lkIjoiVktkc1o5WU83WlplclFuaGI3OUY0dlNYT081MyIsInN1YiI6IlZLZHNaOVlPN1paZXJRbmhiNzlGNHZTWE9PNTMiLCJpYXQiOjE2MTM3Mjg3OTQsImV4cCI6MTYxMzczMjM5NCwiZW1haWwiOiJxdW9jdGhpbmh2bzBAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbInF1b2N0aGluaHZvMEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.HiTwB4n8YoXgPbnc-EOAdGNqCyreUEVCEGZ_cHgqn27kyuEBrTE07yol2c47UNDCKIKdBjFd8jQtzbYCCe8_Z3fBG7xqeGt7Ay5_puYymc7AfcwV6CsvXh5q9-YqlCVIOLDdstVynEflVGWEDaDBXCV2JS57KpUPvRZ5yOSoYS22r37iLTpvpmp046NiXyftbhP1NsO68J5wg-3IsS-7eeF2ol6nHmZX2K8lHuOu8ci0jw2AFbPqQsSbPxXmvSh3ZcTbuBAj0W5EdWsFEF018GT7Ols9AJz5vX40_UaA9RNpFeaKBXvK3pbi-EOAMIAkIcYhUqwXrO-Ph3F-TfGOXg", "registered": true, "refreshToken": "AOvuKvTGK0yWgsuwHo-Lmy2eIg6Zl41MBEsL3rLAQT7RXpUkxd1QAWlux1qu1T5fsdoPZCpD-w_1R6JwKP0-BTJA32n7ydeEBe88hQopeSvMRbjJU_dcLQA50WSVBxqxwgkGYS8ld5ygex1_1KFjoYGX4W7BErEwXFx2rXpHE7gvHpdS3JN5jAgyREk6K_TvpB0K4BmCS6bG", "expiresIn": "3600"}

@@ -14,7 +14,7 @@ import getpass
 firebase = pyrebase.initialize_app(setting.firebaseConfig)
 auth = firebase.auth()
 db = firebase.database()
-
+keychat = ''
 
 # hàm tạo tài khoản
 def createAccount(email, password):
@@ -70,13 +70,13 @@ ID: {}"""
 # in ra intro logo
 
 if len(sys.argv) >= 2:
-    pass 
+   pass
 else:
     effect.intro()
     command = ''
-    strinput = 'home@spinel>'
+    stringinput = 'home@spinel>'
     while True:
-        command = input(strinput)
+        command = input(stringinput)
         if command == 'exit':
             break
         elif command == '':
@@ -103,5 +103,32 @@ else:
         elif (command == 'user'):
             # print(auth.current_user)
             userStatus()
+        elif (command == 'join') | (command == '-j'):
+            if auth.current_user != None:
+                
+
+
+
+
+                sender = firebase.database()
+                keychat = input('Room ID:')
+                print('You are already in this group')
+                message = ''
+                while True:
+                    message = input(keychat + "@spinel>>>")
+                    if message == '/exit':
+                        break
+                    elif message == '/help':
+                        effect.fhelp()
+                    else:
+                        send = {
+                            "message": message,
+                            "email": auth.current_user['email'],
+                            "time": str(datetime.datetime.now()),
+                            "idSender": auth .current_user['localId']
+                        }
+                        sender.child('messages/' + keychat).push(send)
+            else:
+                print('You are not logged in')
         else:
             print('Unknow command. Type help to see more')
