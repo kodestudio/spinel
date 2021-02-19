@@ -65,7 +65,7 @@ def userStatus():
 Email: {}
 ID: {}
         """
-        print(txt.format(auth.current_user['email'], auth.current_user['localID']))
+        print(txt.format(auth.current_user['email'], auth.current_user['localId']))
                 
 
 
