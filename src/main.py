@@ -3,6 +3,8 @@ import pyrebase
 import setting
 import datetime
 import json 
+from rich import print as rprint
+import effect
 
 # dòng này đầu tiên nhằm load firebase config
 firebase = pyrebase.initialize_app(setting.firebaseConfig)
@@ -50,5 +52,20 @@ def resetPassword(email):
 def signoutAccount():
     pass
 
+def fhelp():
+    print("""
+Welcome to Spinel. Try 'spinel [param]'
+Some param can use:
+    help (-h): give help
+    createAccount (-ca) [email] [pass] [username]: create new account with email and password
+    signin (-si) [email] [password]: signin to local Spinel
+    signout (-so): signout Spinel
+    join (-j) [roomID]: join to a secure chat room with ID
+    """)
+
 # chương trình bắt đầu chạy từ đây
-print('Spinel running')
+
+# in ra intro logo
+effect.intro()
+
+fhelp()
